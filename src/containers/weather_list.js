@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 
 class WeatherList extends Component {
     renderWeather(cityData) {
+        const name = cityData.city.name;
         return (
-            <tr>
-                <td>{cityData.city.name}</td>
+            <tr key={name}>
+                <td>{name}</td>
             </tr>
         );
     }
@@ -31,6 +32,7 @@ class WeatherList extends Component {
 
 
 const mapStateToProps = ({ weather }) => { // weather - comes from WeatherReducer (combined reducers) -> reducers/index
+    console.log(weather);
     return { weather }; // { weather } === { weather: weather}
 }
 
